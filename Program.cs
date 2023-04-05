@@ -5,23 +5,40 @@ namespace AddressBook
     {
         static void Main(string[] args)
         {
-            Contact contact = new Contact();
-            Console.WriteLine("Enter first name");
-            contact.FirstName = Console.ReadLine();
-            Console.WriteLine("Enter last name");
-            contact.LastName = Console.ReadLine();
-            Console.WriteLine("Enter Address");
-            contact.Address = Console.ReadLine();
-            Console.WriteLine("Enter City");
-            contact.City = Console.ReadLine();
-            Console.WriteLine("Enter State");
-            contact.State = Console.ReadLine();
-            Console.WriteLine("Enter ZIP");
-            contact.Zip = Console.ReadLine();
-            Console.WriteLine("Enter Phone Number");
-            contact.PhoneNumber = Console.ReadLine();
-            Console.WriteLine("Enter Email");
-            contact.Email = Console.ReadLine();
+            AddressBookMain addressBook = new AddressBookMain();
+            Console.WriteLine("Address Book Entry");
+            bool flag = true;
+            while (flag)
+            {
+                Console.WriteLine("Enter the option\n1. Add Contact\n2. Edit Contact\n3. Delete Contact\n4. Display\n5. Multiple Person add\n6. Exit.");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        addressBook.AddContact();
+                        addressBook.Display();
+                        break;
+                     case 2:
+                        addressBook.EditContact();
+                        addressBook.Display();
+                        break;
+                    case 3:
+                        addressBook.DeleteContact();
+                        addressBook.Display();
+                        break;
+                    case 4:
+                        addressBook.Display();
+                        break;
+                    case 5:
+                        addressBook.MultiplePersonAddress();
+                        addressBook.Display();
+                        break;
+                    case 6:
+                        flag = false;
+                        break;
+                        
+                }
+            }
         }
     }
 }
