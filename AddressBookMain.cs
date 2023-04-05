@@ -110,5 +110,36 @@ namespace AddressBook
             contact.Email = Console.ReadLine();
             addressBook.Add(contact);
         }
+        public void RefactorMultipleAddressBook()
+        {
+            Dictionary<string,List<Contact>> addressBooks = new Dictionary<string,List<Contact>>();
+            while (true)
+            {
+                Console.WriteLine("Enter address book name or type 'exit' ");
+                string bookName = Console.ReadLine();
+                
+                if (bookName.ToLower() == "exit")
+                { break; }
+                
+                if (addressBooks.ContainsKey(bookName))
+                {
+                    Console.WriteLine("{0} Address Book is exist",bookName);
+                }
+                else { addressBooks.Add(bookName, addressBook);
+                    Console.WriteLine("{0} Address book added.\n",bookName);
+                    bool flag = true;
+                    while (flag) 
+                    { 
+                        Console.WriteLine("1. Enter person's details \n2. Type 'exit' ");
+                        AddressBookMain address = new AddressBookMain();
+                        address.AddContact();
+                        address.Display();
+                        flag = false;
+                        break;
+                    }
+                }
+            }
+        }
+
     }
 }

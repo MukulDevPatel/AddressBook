@@ -10,7 +10,7 @@ namespace AddressBook
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Enter the option\n1. Add Contact\n2. Edit Contact\n3. Delete Contact\n4. Display\n5. Multiple Person add\n6. Exit.");
+                Console.WriteLine("Enter the option\n1. Add Contact\n2. Edit Contact\n3. Delete Contact\n4. Display\n5. Multiple Person add\n6. Refactor Multiple Person add\n7. Exit.");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -34,6 +34,10 @@ namespace AddressBook
                         addressBook.Display();
                         break;
                     case 6:
+                        addressBook.RefactorMultipleAddressBook();
+                        addressBook.Display();
+                        break;
+                    case 7:
                         flag = false;
                         break;
                         
